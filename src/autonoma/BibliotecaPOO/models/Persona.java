@@ -62,3 +62,4 @@ public class Persona {
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
     }
+}
