@@ -445,7 +445,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 }//GEN-LAST:event_EliminarLibroMouseClicked
 
     private void LibroAlfabeticamenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LibroAlfabeticamenteMouseClicked
-      new LibrosEnOrdenAlfabetico(this, true).setVisible(true);
+    LibrosEnOrdenAlfabetico dialog = new LibrosEnOrdenAlfabetico(this, true, biblioteca);
+    dialog.setVisible(true);
+
     }//GEN-LAST:event_LibroAlfabeticamenteMouseClicked
         private void mouseEntered(JPanel panel){
         panel.setBackground(new Color(79,149,157));

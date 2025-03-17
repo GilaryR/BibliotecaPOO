@@ -4,26 +4,35 @@
  */
 package autonoma.BibliotecaPOO.views;
 
+import autonoma.BibliotecaPOO.models.Biblioteca;
+import autonoma.BibliotecaPOO.models.Libro;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author jgiugtiñut
  */
 public class LibrosEnOrdenAlfabetico extends javax.swing.JDialog {
-
+    private Biblioteca biblioteca;
     /**
      * Creates new form LibrosEnOrdenAlafabetico
      */
-    public LibrosEnOrdenAlfabetico(java.awt.Frame parent, boolean modal) {
+    public LibrosEnOrdenAlfabetico(java.awt.Frame parent, boolean modal, Biblioteca biblioteca) {
         super(parent, modal);
         initComponents();
+        this.biblioteca = biblioteca;
                    this.setLocationRelativeTo(null);
         try{
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/BibliotecaPOO/images/Biblioteca.png")).getImage());
         }catch(Exception e){
             
         }
+        llenarTablaLibrosOrdenados();
+
     }
 
     /**
@@ -39,6 +48,9 @@ public class LibrosEnOrdenAlfabetico extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaLibrosOrdenados = new javax.swing.JTable();
+        btnCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -75,15 +87,50 @@ public class LibrosEnOrdenAlfabetico extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(87, 180, 186));
 
+        TablaLibrosOrdenados.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "", "ID", "TITULO"
+            }
+        ));
+        jScrollPane1.setViewportView(TablaLibrosOrdenados);
+
+        btnCerrar.setBackground(new java.awt.Color(79, 149, 157));
+        btnCerrar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        btnCerrar.setText("CERRAR");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addComponent(btnCerrar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 222, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(btnCerrar)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -104,10 +151,32 @@ public class LibrosEnOrdenAlfabetico extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+      dispose ();
+    }//GEN-LAST:event_btnCerrarActionPerformed
+private void llenarTablaLibrosOrdenados() {
+    DefaultTableModel modelo = (DefaultTableModel) TablaLibrosOrdenados.getModel();
+    modelo.setRowCount(0); // Limpiar la tabla antes de llenarla
+
+    // Obtener lista de libros de la biblioteca
+    List<Libro> libros = biblioteca.getLibros();
+
+    // Ordenar libros alfabéticamente por título
+    libros.sort(Comparator.comparing(Libro::getTitulo));
+
+    // Llenar la tabla con los libros ordenados
+    for (Libro libro : libros) {
+        String letraInicial = libro.getTitulo().substring(0, 1).toUpperCase();
+        modelo.addRow(new Object[]{letraInicial, libro.getId(), libro.getTitulo()});
+    }
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TablaLibrosOrdenados;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
