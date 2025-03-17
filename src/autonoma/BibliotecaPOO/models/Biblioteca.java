@@ -25,11 +25,6 @@ public class Biblioteca {
     public Biblioteca() {
         this.libros = new ArrayList<>();
 
-        // Agregar algunos libros de prueba
-        libros.add(new Libro(1L, "A"));
-        libros.add(new Libro(2L, "AA"));
-        libros.add(new Libro(3L, "AAA"));
-
 
     }
 

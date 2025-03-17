@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
+
 package autonoma.BibliotecaPOO.views;
 
 import autonoma.BibliotecaPOO.models.Biblioteca;
@@ -14,7 +11,9 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author jgiugtiñut
+ * @author Gilary
+ * @since 20250316
+ * @version 1.0
  */
 public class LibrosEnOrdenAlfabetico extends javax.swing.JDialog {
     private Biblioteca biblioteca;
