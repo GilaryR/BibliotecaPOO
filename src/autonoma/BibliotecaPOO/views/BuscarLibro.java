@@ -13,7 +13,7 @@ import autonoma.BibliotecaPOO.views.VentanaPrincipal;
 /**
  * @author Juan Diego
  * @since 20250316
- * @version 1.0
+ * @version 1.3
  */
 public class BuscarLibro extends javax.swing.JFrame {
 

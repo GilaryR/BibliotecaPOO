@@ -7,7 +7,7 @@ import java.util.List;
  *Modelo que representa una biblioteca
  * @author alejandro
  * since 20250315
- * version 1.0
+ * version 1.2
  */
 public class Biblioteca {
     //////////////////////////////////////////////////////////////
@@ -25,9 +25,9 @@ public class Biblioteca {
     public Biblioteca() {
         this.libros = new ArrayList<>();
         // Agregar algunos libros de prueba
-        libros.add(new Libro(1L, "El Quijote"));
-        libros.add(new Libro(2L, "Cien Años de Soledad"));
-        libros.add(new Libro(3L, "La Odisea"));
+        libros.add(new Libro(1L, "A"));
+        libros.add(new Libro(2L, "AA"));
+        libros.add(new Libro(3L, "AAA"));
     }
 
     
