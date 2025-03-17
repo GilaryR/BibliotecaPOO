@@ -276,6 +276,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         jLabel4.setText("Eliminar Libro");
 
+        TablaLibros.setBackground(new java.awt.Color(220, 215, 201));
+        TablaLibros.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         TablaLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
