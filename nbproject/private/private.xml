@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
+            <file>file:/C:/Users/juand/Desktop/Universidad/3Semestre/POO/EjercicioGitBiblio/BibliotecaPOO/src/autonoma/BibliotecaPOO/models/Libro.java</file>
+            <file>file:/C:/Users/juand/Desktop/Universidad/3Semestre/POO/EjercicioGitBiblio/BibliotecaPOO/src/autonoma/BibliotecaPOO/views/VentanaPrincipal.java</file>
+            <file>file:/C:/Users/juand/Desktop/Universidad/3Semestre/POO/EjercicioGitBiblio/BibliotecaPOO/src/autonoma/BibliotecaPOO/views/ActualizarLibro.java</file>
+            <file>file:/C:/Users/juand/Desktop/Universidad/3Semestre/POO/EjercicioGitBiblio/BibliotecaPOO/src/autonoma/BibliotecaPOO/main/Bibliotecapoo.java</file>
             <file>file:/C:/Users/juand/Desktop/Universidad/3Semestre/POO/EjercicioGitBiblio/BibliotecaPOO/src/autonoma/BibliotecaPOO/models/Persona.java</file>
-=======
-            <file>file:/C:/Users/jgiugtiñut/Desktop/BibliotecaPOOc/BibliotecaPOO/src/autonoma/BibliotecaPOO/views/VentanaPrincipal.java</file>
->>>>>>> c95b6d1fa032c1da9e0f8b29119933881458dc7a
+            <file>file:/C:/Users/juand/Desktop/Universidad/3Semestre/POO/EjercicioGitBiblio/BibliotecaPOO/src/autonoma/BibliotecaPOO/views/BuscarLibro.java</file>
+            <file>file:/C:/Users/juand/Desktop/Universidad/3Semestre/POO/EjercicioGitBiblio/BibliotecaPOO/src/autonoma/BibliotecaPOO/models/Biblioteca.java</file>
+            <file>file:/C:/Users/juand/Desktop/Universidad/3Semestre/POO/EjercicioGitBiblio/BibliotecaPOO/src/autonoma/BibliotecaPOO/models/Autor.java</file>
+            <file>file:/C:/Users/juand/Desktop/Universidad/3Semestre/POO/EjercicioGitBiblio/BibliotecaPOO/src/autonoma/BibliotecaPOO/views/EliminarLibro.java</file>
+            <file>file:/C:/Users/juand/Desktop/Universidad/3Semestre/POO/EjercicioGitBiblio/BibliotecaPOO/src/autonoma/BibliotecaPOO/views/AgregarLibro.java</file>
+            <file>file:/C:/Users/juand/Desktop/Universidad/3Semestre/POO/EjercicioGitBiblio/BibliotecaPOO/src/autonoma/BibliotecaPOO/views/LibrosEnOrdenAlfabetico.java</file>
         </group>
     </open-files>
 </project-private>
