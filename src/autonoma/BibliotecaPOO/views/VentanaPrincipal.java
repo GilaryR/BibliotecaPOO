@@ -8,11 +8,14 @@ import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Gilary
+ * @since 20250316
+ * @version 1.0
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     private Biblioteca biblioteca;
@@ -37,6 +40,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         public Biblioteca getBiblioteca(){
         return biblioteca;
         }
+        public JTable getTablaLibros(){
+            return TablaLibros;
+        }
     
 
 
@@ -54,6 +60,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         EliminarLibroIMG = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         AgregarLibro = new javax.swing.JPanel();
         AgregarLibroIMG = new javax.swing.JLabel();
         BuscarLibro = new javax.swing.JPanel();
@@ -109,24 +117,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(79, 149, 157));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Showcard Gothic", 1, 48)); // NOI18N
         jLabel6.setText("BIBLIOTECA");
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/BibliotecaPOO/images/Biblioteca.png"))); // NOI18N
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/BibliotecaPOO/images/Biblioteca.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(238, 238, 238)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(53, 53, 53)
                 .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(jLabel7)
+                .addGap(69, 69, 69))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel6)
-                .addContainerGap(37, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel6))
+                .addGap(33, 33, 33))
         );
 
         AgregarLibro.setBackground(new java.awt.Color(87, 180, 186));
@@ -313,7 +332,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(26, 26, 26)
                         .addComponent(jLabel5)
-                        .addContainerGap(14, Short.MAX_VALUE))
+                        .addContainerGap(18, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(ActualizarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -409,16 +428,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_LibroAlfabeticamenteMouseExited
 
     private void AgregarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AgregarLibroMouseClicked
-    AgregarLibro agregarLibro = new AgregarLibro(this, true, biblioteca);
+    AgregarLibro agregarLibro = new AgregarLibro(this, true, biblioteca, this);
     agregarLibro.setVisible(true);
     }//GEN-LAST:event_AgregarLibroMouseClicked
 
     private void BuscarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarLibroMouseClicked
-       new BuscarLibro().setVisible(true);
+       BuscarLibro ventanaBuscar = new BuscarLibro(this.biblioteca, this);
+       ventanaBuscar.setVisible(true);
     }//GEN-LAST:event_BuscarLibroMouseClicked
 
     private void ActualizarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ActualizarLibroMouseClicked
-      new ActualizarLibro(this, true).setVisible(true);
+        ActualizarLibro actualizarLibro = new ActualizarLibro(this);
+        actualizarLibro.setVisible(true);
+            
     }//GEN-LAST:event_ActualizarLibroMouseClicked
 
     private void EliminarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarLibroMouseClicked
@@ -437,16 +459,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
    
 public void llenarTablaLibros() {
-        DefaultTableModel modelo = (DefaultTableModel) TablaLibros.getModel();
-        modelo.setRowCount(0); // Limpiar la tabla antes de llenarla
+    DefaultTableModel modelo = (DefaultTableModel) TablaLibros.getModel();
+    modelo.setRowCount(0); // Limpiar la tabla antes de llenarla
 
-        for (Libro libro : biblioteca.getLibros()) { 
-            modelo.addRow(new Object[]{
-                libro.getId(),
-                libro.getTitulo()
-            });
-        }
+    for (Libro libro : biblioteca.getLibros()) { // ← Asegúrate de que esta función existe en Biblioteca
+        modelo.addRow(new Object[]{libro.getId(), libro.getTitulo()});
 }
+}
+
+public void agregarLibroTabla(Libro libro) {
+    DefaultTableModel modelo = (DefaultTableModel) TablaLibros.getModel();
+    modelo.addRow(new Object[]{libro.getId(), libro.getTitulo()});
+}
+
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -467,6 +492,8 @@ public void llenarTablaLibros() {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;

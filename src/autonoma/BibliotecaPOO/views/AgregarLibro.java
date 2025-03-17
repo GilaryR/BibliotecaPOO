@@ -6,10 +6,13 @@ import autonoma.BibliotecaPOO.models.Libro;
 import java.awt.Frame;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Gilary
+ * @since 20250316
+ * @version 1.0
  */
 public class AgregarLibro extends javax.swing.JDialog {
     private Biblioteca biblioteca;
@@ -18,7 +21,7 @@ public class AgregarLibro extends javax.swing.JDialog {
     /**
      * Creates new form AgregarLibro2
      */
-    public AgregarLibro(Frame parent, boolean modal, Biblioteca biblioteca) {
+    public AgregarLibro(Frame parent, boolean modal, Biblioteca biblioteca, VentanaPrincipal ventanaPrincipal) {
         super(parent, modal);
         this.biblioteca = biblioteca;
         this.ventanaPrincipal = ventanaPrincipal;
@@ -31,6 +34,7 @@ public class AgregarLibro extends javax.swing.JDialog {
         }catch(Exception e){
             
         }
+
     }
 
 
@@ -47,6 +51,7 @@ public class AgregarLibro extends javax.swing.JDialog {
         jDialog1 = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Identi = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
@@ -72,24 +77,33 @@ public class AgregarLibro extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(79, 149, 157));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Showcard Gothic", 0, 30)); // NOI18N
         jLabel1.setText("AGREGAR LIBRO");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/autonoma/BibliotecaPOO/images/AgregarLibro.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(112, 112, 112))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel1)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(19, 19, 19))))
         );
 
         jPanel2.setBackground(new java.awt.Color(87, 180, 186));
@@ -138,7 +152,7 @@ public class AgregarLibro extends javax.swing.JDialog {
                         .addComponent(btnAgregar)
                         .addGap(100, 100, 100)
                         .addComponent(btnCancelar)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +165,7 @@ public class AgregarLibro extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titulo)
                     .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
                     .addComponent(btnCancelar))
@@ -163,14 +177,11 @@ public class AgregarLibro extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -180,42 +191,41 @@ public class AgregarLibro extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-
-    String titulo = txtTitulo.getText().trim();
-    String idTexto = idtxt.getText().trim();
-
-    // Validar que no estén vacíos
-    if (titulo.isEmpty() || idTexto.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Por favor, ingresa el ID y el título.");
-        return;
-    }
-
-    try {
-        int id = Integer.parseInt(idTexto); // Convertir el ID a número
-
-        // Crear un nuevo libro y agregarlo a la biblioteca
-        Libro nuevoLibro = new Libro(id, titulo);
-        biblioteca.agregarLibro(nuevoLibro);
-
-        JOptionPane.showMessageDialog(this, "Libro agregado exitosamente.");
-
-        // 🔹 Llamar a VentanaPrincipal para actualizar la tabla
-        if (getParent() instanceof VentanaPrincipal) {
-            ((VentanaPrincipal) getParent()).llenarTablaLibros();
-        }
-
-        this.dispose(); // Cerrar la ventana después de agregar
-
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "El ID debe ser un número válido.");
-}
+    agregarLibro();
 
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+private void agregarLibro(){
+    try {
+        Long id = Long.parseLong(idtxt.getText());
+        String titulo = txtTitulo.getText();
 
+        if (titulo.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese el título del libro", "Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Crear libro y agregarlo a la tabla
+        Libro nuevoLibro = new Libro(id, titulo);
+        biblioteca.agregarLibro(nuevoLibro);
+        ventanaPrincipal.llenarTablaLibros();
+
+        JOptionPane.showMessageDialog(this, "Libro agregado exitosamente");
+        this.dispose(); // Cierra el diálogo después de agregar
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Ingrese un ID válido", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
+    
+    
+    private void agregarLibroTabla(Libro libro) {
+    DefaultTableModel modelo = (DefaultTableModel) ventanaPrincipal.getTablaLibros().getModel();
+    modelo.addRow(new Object[]{libro.getId(), libro.getTitulo()});
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Identi;
     private javax.swing.JButton btnAgregar;
@@ -223,6 +233,7 @@ public class AgregarLibro extends javax.swing.JDialog {
     private java.awt.TextField idtxt;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel titulo;

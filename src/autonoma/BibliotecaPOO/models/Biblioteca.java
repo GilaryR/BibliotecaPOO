@@ -24,10 +24,14 @@ public class Biblioteca {
     ///Metodo Constructor
     public Biblioteca() {
         this.libros = new ArrayList<>();
+<<<<<<< HEAD
         // Agregar algunos libros de prueba
         libros.add(new Libro(1L, "A"));
         libros.add(new Libro(2L, "AA"));
         libros.add(new Libro(3L, "AAA"));
+=======
+
+>>>>>>> 72fd4aaeff6c1d9f98cd3bd394bea424276367c4
     }
 
     
