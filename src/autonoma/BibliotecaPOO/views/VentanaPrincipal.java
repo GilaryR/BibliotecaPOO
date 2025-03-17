@@ -28,6 +28,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         try{
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/BibliotecaPOO/images/Biblioteca.png")).getImage());
         }catch(Exception e){
+            System.out.println("Imagen no encontrada");
             
         }
         llenarTablaLibros();
@@ -293,13 +294,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         TablaLibros.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         TablaLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "TITULO"
+                "ID", "TITULO", "AUTOR", "EDITORIAL"
             }
         ));
         jScrollPane1.setViewportView(TablaLibros);

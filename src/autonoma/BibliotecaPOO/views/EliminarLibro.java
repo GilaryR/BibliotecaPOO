@@ -30,6 +30,7 @@ public class EliminarLibro extends javax.swing.JDialog {
         try {
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/BibliotecaPOO/images/Biblioteca.png")).getImage());
         } catch (Exception e) {
+            System.out.println("Imagen no encontrada");
             
         }
     }
