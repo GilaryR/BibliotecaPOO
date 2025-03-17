@@ -14,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Gilary
+ * @since 20250316
+ * @version 1.0
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     private Biblioteca biblioteca;
@@ -436,7 +438,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BuscarLibroMouseClicked
 
     private void ActualizarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ActualizarLibroMouseClicked
-      new ActualizarLibro(this, true).setVisible(true);
+        ActualizarLibro actualizarLibro = new ActualizarLibro(this);
+        actualizarLibro.setVisible(true);
+            
     }//GEN-LAST:event_ActualizarLibroMouseClicked
 
     private void EliminarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarLibroMouseClicked
