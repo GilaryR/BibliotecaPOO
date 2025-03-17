@@ -22,7 +22,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     
     public VentanaPrincipal() {
-        biblioteca = new Biblioteca(new ArrayList<Libro>());
+        biblioteca = new Biblioteca();
         initComponents();
                 this.setLocationRelativeTo(null);
         try{
@@ -414,7 +414,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarLibroMouseClicked
 
     private void BuscarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarLibroMouseClicked
-       new BuscarLibro(this, true).setVisible(true);
+       new BuscarLibro().setVisible(true);
     }//GEN-LAST:event_BuscarLibroMouseClicked
 
     private void ActualizarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ActualizarLibroMouseClicked

@@ -2,6 +2,7 @@
 package autonoma.BibliotecaPOO.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *Modelo que representa una biblioteca
@@ -17,20 +18,20 @@ public class Biblioteca {
      * Arreglo de libros 
      */
     
-    private ArrayList <Libro> libros;
+    private List<Libro> libros;
     
     
     ///////////////////////////////////////////////////////////////////////
     ///Metodo Constructor
-    public Biblioteca(ArrayList<Libro> libros) {
-        this.libros = libros;
+    public Biblioteca() {
+        this.libros = new ArrayList<>();
     }
 
     
     
     ///////////////////////////////////////////////////////////////////////
     ///Metodos acceso
-    public ArrayList<Libro> getLibros() {
+    public List<Libro> getLibros() {
         return libros;
     }
 
