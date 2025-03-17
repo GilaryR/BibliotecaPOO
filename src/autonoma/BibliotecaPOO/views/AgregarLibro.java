@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
+
 package autonoma.BibliotecaPOO.views;
 
 import autonoma.BibliotecaPOO.models.Biblioteca;
@@ -12,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author jgiugtiñut
+ * @author Gilary
  */
 public class AgregarLibro extends javax.swing.JDialog {
     private Biblioteca biblioteca;

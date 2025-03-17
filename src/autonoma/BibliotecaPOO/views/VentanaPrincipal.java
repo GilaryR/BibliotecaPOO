@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package autonoma.BibliotecaPOO.views;
 
 import autonoma.BibliotecaPOO.models.Autor;
@@ -15,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author jgiugtiñut
+ * @author Gilary
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     private Biblioteca biblioteca;
@@ -120,16 +117,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(274, 274, 274)
+                .addGap(238, 238, 238)
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel6)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         AgregarLibro.setBackground(new java.awt.Color(87, 180, 186));
