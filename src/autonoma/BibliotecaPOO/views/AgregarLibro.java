@@ -53,9 +53,7 @@ public class AgregarLibro extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        Identi = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
-        idtxt = new java.awt.TextField();
         btnAgregar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         txtTitulo = new java.awt.TextField();
@@ -108,9 +106,6 @@ public class AgregarLibro extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(87, 180, 186));
 
-        Identi.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        Identi.setText("ID:");
-
         titulo.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         titulo.setText("TITULO:");
 
@@ -140,13 +135,9 @@ public class AgregarLibro extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Identi)
-                            .addComponent(titulo))
+                        .addComponent(titulo)
                         .addGap(96, 96, 96)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(idtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(txtTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addComponent(btnAgregar)
@@ -157,11 +148,7 @@ public class AgregarLibro extends javax.swing.JDialog {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Identi)
-                    .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                .addGap(62, 62, 62)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titulo)
                     .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -200,7 +187,6 @@ public class AgregarLibro extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 private void agregarLibro(){
     try {
-        Long id = Long.parseLong(idtxt.getText());
         String titulo = txtTitulo.getText();
 
         if (titulo.isEmpty()) {
@@ -209,7 +195,7 @@ private void agregarLibro(){
         }
 
         // Crear libro y agregarlo a la tabla
-        Libro nuevoLibro = new Libro(id, titulo);
+        Libro nuevoLibro = new Libro(titulo);
         biblioteca.agregarLibro(nuevoLibro);
         ventanaPrincipal.llenarTablaLibros();
 
@@ -227,10 +213,8 @@ private void agregarLibro(){
     modelo.addRow(new Object[]{libro.getId(), libro.getTitulo()});
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Identi;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
-    private java.awt.TextField idtxt;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

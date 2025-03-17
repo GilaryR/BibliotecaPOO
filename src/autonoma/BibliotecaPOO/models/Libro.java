@@ -10,6 +10,8 @@ package autonoma.BibliotecaPOO.models;
 public class Libro {
     /////// Atributos
     
+    private static int contadorLibros = 0;
+    
     /**
      * id
      */
@@ -23,8 +25,9 @@ public class Libro {
 
     
     ////// Metodo Constructor 
-    public Libro( long id, String titulo) {
-        this.id = id;
+    public Libro(String titulo) {
+        Libro.contadorLibros ++;
+        this.id = Libro.contadorLibros;
         this.titulo = titulo;
     }
 
@@ -32,10 +35,7 @@ public class Libro {
     public long getId() {
         return id;
     }
- 
-    public void setId(long id) {
-        this.id = id;
-    }
+
 
     public String getTitulo() {
         return titulo;

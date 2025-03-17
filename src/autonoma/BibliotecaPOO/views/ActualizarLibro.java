@@ -228,9 +228,7 @@ public class ActualizarLibro extends javax.swing.JDialog {
                     Long nuevoId = Long.parseLong(nuevoIdStr);
                     modelo.setValueAt(nuevoId, i, 0);
                     Libro libro = ventanaPrincipal.getBiblioteca().buscarLibro(idBuscado);
-                    if (libro != null) {
-                        libro.setId(nuevoId);
-                    }
+
                 }
 
                 // Si el usuario ingresó un nuevo título, actualizarlo
