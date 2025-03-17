@@ -1,4 +1,3 @@
-
 package autonoma.BibliotecaPOO.models;
 
 import java.util.ArrayList;
@@ -25,6 +24,10 @@ public class Biblioteca {
     ///Metodo Constructor
     public Biblioteca() {
         this.libros = new ArrayList<>();
+        // Agregar algunos libros de prueba
+        libros.add(new Libro(1L, "El Quijote"));
+        libros.add(new Libro(2L, "Cien Años de Soledad"));
+        libros.add(new Libro(3L, "La Odisea"));
     }
 
     
@@ -72,14 +75,12 @@ public class Biblioteca {
         return false; 
     }
     
-    public Libro buscarLibro(long id){
-        
-        for(int i=0; i<libros.size(); i++){
-            if(libros.get(i).getId() == id ){
-                return libros.get(i);
+    public Libro buscarLibro(long id) {
+        for (Libro libro : libros) {
+            if (libro.getId() == id) {
+                return libro;
             }
         }
-        
         return null;
     }
     

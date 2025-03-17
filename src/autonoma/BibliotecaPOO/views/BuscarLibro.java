@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package autonoma.BibliotecaPOO.views;
+
 import autonoma.BibliotecaPOO.models.Biblioteca;
 import autonoma.BibliotecaPOO.models.Libro;
 import javax.swing.JOptionPane;
@@ -173,20 +174,25 @@ public class BuscarLibro extends javax.swing.JFrame {
     private void searchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchButtonMouseClicked
         // TODO add your handling code here:
         Long value = null;
-        try{
+        try {
             String input = inputIDBookTF.getText();
-            value= Long.parseLong(input);
-            biblio.buscarLibro(value);
+            if (input.isEmpty()) {
+                throw new NumberFormatException("El campo de ID está vacío");
+            }
+            value = Long.parseLong(input);
+            Libro encontrado = biblio.buscarLibro(value);
+            if (encontrado != null) {
+                outputBookTF.setText(encontrado.getTitulo());
+            } else {
+                JOptionPane.showMessageDialog(null, "Libro no encontrado");
+            }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "El numero ingresado no es valido");
+            JOptionPane.showMessageDialog(null, "El número ingresado no es válido: " + e.getMessage());
             this.setVisible(true);
-            return;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocurrió un error: " + e.getMessage());
+            e.printStackTrace();
         }
-        
-        Libro encontrado= biblio.buscarLibro(value);
-        outputBookTF.setText(encontrado.getTitulo());
-        
-        
     }//GEN-LAST:event_searchButtonMouseClicked
 
     private void outputBookTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputBookTFActionPerformed
