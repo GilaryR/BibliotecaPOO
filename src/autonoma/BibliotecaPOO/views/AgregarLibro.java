@@ -4,27 +4,39 @@
  */
 package autonoma.BibliotecaPOO.views;
 
+import autonoma.BibliotecaPOO.models.Biblioteca;
+import autonoma.BibliotecaPOO.models.Libro;
+import java.awt.Frame;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author jgiugtiñut
  */
 public class AgregarLibro extends javax.swing.JDialog {
+    private Biblioteca biblioteca;
+    private VentanaPrincipal ventanaPrincipal;
 
     /**
-     * Creates new form AgregarLibro
+     * Creates new form AgregarLibro2
      */
-    public AgregarLibro(java.awt.Frame parent, boolean modal) {
+    public AgregarLibro(Frame parent, boolean modal, Biblioteca biblioteca) {
         super(parent, modal);
+        this.biblioteca = biblioteca;
+        this.ventanaPrincipal = ventanaPrincipal;
+        
         initComponents();
-                        this.setLocationRelativeTo(null);
+                
+        setLocationRelativeTo(this);
         try{
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/BibliotecaPOO/images/Biblioteca.png")).getImage());
         }catch(Exception e){
             
         }
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,21 +47,29 @@ public class AgregarLibro extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        Identificacion = new javax.swing.JLabel();
-        Titulo = new javax.swing.JLabel();
-        Autor = new javax.swing.JLabel();
-        Editorial = new javax.swing.JLabel();
-        ProfesionAutor = new javax.swing.JLabel();
-        iDentificacion = new java.awt.TextField();
-        titulo = new java.awt.TextField();
-        autor = new java.awt.TextField();
-        editorial = new java.awt.TextField();
-        profesion = new java.awt.TextField();
+        Identi = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
+        idtxt = new java.awt.TextField();
         btnAgregar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        txtTitulo = new java.awt.TextField();
+
+        jDialog1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -65,120 +85,95 @@ public class AgregarLibro extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(179, 179, 179))
+                .addGap(112, 112, 112))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel1)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(87, 180, 186));
 
-        Identificacion.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        Identificacion.setText("ID:");
+        Identi.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        Identi.setText("ID:");
 
-        Titulo.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        Titulo.setText("TITULO: ");
-
-        Autor.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        Autor.setText("AUTOR:");
-
-        Editorial.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        Editorial.setText("EDITORIAL:");
-
-        ProfesionAutor.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        ProfesionAutor.setText("PROFESION DEL AUTOR: ");
-
-        iDentificacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iDentificacionActionPerformed(evt);
-            }
-        });
+        titulo.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        titulo.setText("TITULO:");
 
         btnAgregar.setBackground(new java.awt.Color(79, 149, 157));
         btnAgregar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnAgregar.setText("AGREGAR");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(new java.awt.Color(79, 149, 157));
         btnCancelar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btnCancelar.setText("CANCELAR");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Identificacion)
-                                    .addComponent(Titulo)
-                                    .addComponent(Autor)
-                                    .addComponent(Editorial))
-                                .addGap(115, 115, 115)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(autor, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(editorial, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(iDentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ProfesionAutor))
-                                .addGap(18, 18, 18)
-                                .addComponent(profesion, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(114, Short.MAX_VALUE))
+                            .addComponent(Identi)
+                            .addComponent(titulo))
+                        .addGap(96, 96, 96)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(idtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(txtTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96))))
+                        .addGap(71, 71, 71)
+                        .addComponent(btnAgregar)
+                        .addGap(100, 100, 100)
+                        .addComponent(btnCancelar)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(25, 25, 25)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Identi)
+                    .addComponent(idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Identificacion)
-                    .addComponent(iDentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Titulo)
-                    .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Autor)
-                    .addComponent(autor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Editorial)
-                    .addComponent(editorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ProfesionAutor)
-                    .addComponent(profesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                    .addComponent(titulo)
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
                     .addComponent(btnCancelar))
-                .addGap(28, 28, 28))
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -187,26 +182,53 @@ public class AgregarLibro extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void iDentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iDentificacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iDentificacionActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
+    String titulo = txtTitulo.getText().trim();
+    String idTexto = idtxt.getText().trim();
+
+    // Validar que no estén vacíos
+    if (titulo.isEmpty() || idTexto.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor, ingresa el ID y el título.");
+        return;
+    }
+
+    try {
+        int id = Integer.parseInt(idTexto); // Convertir el ID a número
+
+        // Crear un nuevo libro y agregarlo a la biblioteca
+        Libro nuevoLibro = new Libro(id, titulo);
+        biblioteca.agregarLibro(nuevoLibro);
+
+        JOptionPane.showMessageDialog(this, "Libro agregado exitosamente.");
+
+        // 🔹 Llamar a VentanaPrincipal para actualizar la tabla
+        if (getParent() instanceof VentanaPrincipal) {
+            ((VentanaPrincipal) getParent()).llenarTablaLibros();
+        }
+
+        this.dispose(); // Cerrar la ventana después de agregar
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "El ID debe ser un número válido.");
+}
+
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Autor;
-    private javax.swing.JLabel Editorial;
-    private javax.swing.JLabel Identificacion;
-    private javax.swing.JLabel ProfesionAutor;
-    private javax.swing.JLabel Titulo;
-    private java.awt.TextField autor;
+    private javax.swing.JLabel Identi;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
-    private java.awt.TextField editorial;
-    private java.awt.TextField iDentificacion;
+    private java.awt.TextField idtxt;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private java.awt.TextField profesion;
-    private java.awt.TextField titulo;
+    private javax.swing.JLabel titulo;
+    private java.awt.TextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,13 +1,15 @@
 
 package autonoma.BibliotecaPOO.main;
 
+import autonoma.BibliotecaPOO.models.Biblioteca;
 import autonoma.BibliotecaPOO.views.VentanaPrincipal;
+import java.util.ArrayList;
 
 /**
  *
  * @author jgiugtiñut
  */
-public class Biblioteca {
+public class Bibliotecapoo {
 
 
     public static void main(String[] args) {
