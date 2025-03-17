@@ -24,10 +24,7 @@ public class Biblioteca {
     ///Metodo Constructor
     public Biblioteca() {
         this.libros = new ArrayList<>();
-        // Agregar algunos libros de prueba
-        libros.add(new Libro(1L, "El Quijote"));
-        libros.add(new Libro(2L, "Cien Años de Soledad"));
-        libros.add(new Libro(3L, "La Odisea"));
+
     }
 
     
