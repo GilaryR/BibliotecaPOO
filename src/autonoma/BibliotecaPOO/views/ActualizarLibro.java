@@ -1,15 +1,15 @@
-
 package autonoma.BibliotecaPOO.views;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import autonoma.BibliotecaPOO.models.*;
 
 /**
  *
  * @author Gilary
  * @since 20250316
- * @version 1.0
+ * @version 1.1
  */
 public class ActualizarLibro extends javax.swing.JDialog {
     private VentanaPrincipal ventanaPrincipal;
@@ -227,11 +227,19 @@ public class ActualizarLibro extends javax.swing.JDialog {
                 if (!nuevoIdStr.isEmpty()) {
                     Long nuevoId = Long.parseLong(nuevoIdStr);
                     modelo.setValueAt(nuevoId, i, 0);
+                    Libro libro = ventanaPrincipal.getBiblioteca().buscarLibro(idBuscado);
+                    if (libro != null) {
+                        libro.setId(nuevoId);
+                    }
                 }
 
                 // Si el usuario ingresó un nuevo título, actualizarlo
                 if (!nuevoTitulo.isEmpty()) {
                     modelo.setValueAt(nuevoTitulo, i, 1);
+                    Libro libro = ventanaPrincipal.getBiblioteca().buscarLibro(idBuscado);
+                    if (libro != null) {
+                        libro.setTitulo(nuevoTitulo);
+                    }
                 }
 
                 encontrado = true;
@@ -247,8 +255,12 @@ public class ActualizarLibro extends javax.swing.JDialog {
         }
     } catch (NumberFormatException e) {
         JOptionPane.showMessageDialog(this, "Ingrese IDs válidos", "Error", JOptionPane.ERROR_MESSAGE);
-}
-    }//GEN-LAST:event_btnActualizarActionPerformed
+    } catch (NullPointerException e) {
+        JOptionPane.showMessageDialog(this, "Error al actualizar el libro. Asegúrese de que el libro existe.", "Error", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Ocurrió un error inesperado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         dispose ();
