@@ -1,11 +1,8 @@
-
 package autonoma.BibliotecaPOO.views;
 
-import autonoma.BibliotecaPOO.models.Autor;
 import autonoma.BibliotecaPOO.models.Biblioteca;
 import autonoma.BibliotecaPOO.models.Libro;
 import java.awt.Color;
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -444,8 +441,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_ActualizarLibroMouseClicked
 
     private void EliminarLibroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarLibroMouseClicked
-    new EliminarLibro(this, true).setVisible(true);
-    }//GEN-LAST:event_EliminarLibroMouseClicked
+    new EliminarLibro(this, true, biblioteca, this).setVisible(true);
+}//GEN-LAST:event_EliminarLibroMouseClicked
 
     private void LibroAlfabeticamenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LibroAlfabeticamenteMouseClicked
       new LibrosEnOrdenAlfabetico(this, true).setVisible(true);

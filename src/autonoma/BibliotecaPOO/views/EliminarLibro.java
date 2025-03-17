@@ -5,23 +5,31 @@
 package autonoma.BibliotecaPOO.views;
 
 import javax.swing.ImageIcon;
+import autonoma.BibliotecaPOO.models.Biblioteca;
+import autonoma.BibliotecaPOO.models.Libro;
+import autonoma.BibliotecaPOO.views.VentanaPrincipal;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author jgiugtiñut
+ * @author Juan Diego
+ * @since 20250316
+ * @version 1.0
  */
 public class EliminarLibro extends javax.swing.JDialog {
 
-    /**
-     * Creates new form EliminarLibro
-     */
-    public EliminarLibro(java.awt.Frame parent, boolean modal) {
+    private Biblioteca biblio;
+    private VentanaPrincipal principal;
+
+    public EliminarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblio, VentanaPrincipal principal) {
         super(parent, modal);
+        this.biblio = biblio;
+        this.principal = principal;
         initComponents();
-         this.setLocationRelativeTo(null);
-        try{
+        this.setLocationRelativeTo(null);
+        try {
             this.setIconImage(new ImageIcon(getClass().getResource("/autonoma/BibliotecaPOO/images/Biblioteca.png")).getImage());
-        }catch(Exception e){
+        } catch (Exception e) {
             
         }
     }
@@ -40,7 +48,7 @@ public class EliminarLibro extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        inputUserTF = new javax.swing.JTextField();
         deleteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -81,11 +89,11 @@ public class EliminarLibro extends javax.swing.JDialog {
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Ingrese el ID libro desea eliminar?: ");
+        jLabel3.setText("Ingrese el ID libro desea eliminar: ");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        inputUserTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                inputUserTFActionPerformed(evt);
             }
         });
 
@@ -109,11 +117,11 @@ public class EliminarLibro extends javax.swing.JDialog {
                         .addGap(101, 101, 101)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputUserTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(256, 256, 256)
                         .addComponent(deleteButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +130,7 @@ public class EliminarLibro extends javax.swing.JDialog {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputUserTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(deleteButton)
                 .addGap(0, 119, Short.MAX_VALUE))
@@ -148,23 +156,47 @@ public class EliminarLibro extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void inputUserTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputUserTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_inputUserTFActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_deleteButtonActionPerformed
+    String input = inputUserTF.getText();
+    if (input.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Ingrese un ID", "Error", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+    
+    Long value;
+    try {
+        value = Long.parseLong(input);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "ID inválido. Por favor ingrese un número.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    
+    Libro encontrado = biblio.buscarLibro(value);
+    if (encontrado != null) {
+        if (biblio.eliminarLibro(value)) {
+            JOptionPane.showMessageDialog(this, "Libro eliminado exitosamente.");
+            principal.llenarTablaLibros(); // Actualizar la tabla en la ventana principal
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al eliminar el libro.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Libro no encontrado.", "Error", JOptionPane.WARNING_MESSAGE);
+    }
+}//GEN-LAST:event_deleteButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deleteButton;
+    private javax.swing.JTextField inputUserTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

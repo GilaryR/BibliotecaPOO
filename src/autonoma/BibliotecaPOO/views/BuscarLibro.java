@@ -197,7 +197,6 @@ public class BuscarLibro extends javax.swing.JFrame {
         }
         Long idBuscado = Long.parseLong(input);
 
-        // Buscar el libro en la biblioteca
         Libro libroEncontrado = biblioteca.buscarLibro(idBuscado);
         if (libroEncontrado != null) {
             outputBookTF.setText(libroEncontrado.getTitulo());

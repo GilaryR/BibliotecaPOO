@@ -31,7 +31,6 @@ public class Biblioteca {
         libros.add(new Libro(3L, "AAA"));
 
 
-
     }
 
     
@@ -69,15 +68,15 @@ public class Biblioteca {
     return resultado;
 }
     
-    public boolean eliminarLibro(Libro libro, long id){
-        for (int i = 0; i < libros.size(); i++){
-            if (libros.get(i).getId() == (libro.getId())){ 
-                libros.remove(i);  
-                return true; 
-            } 
+    public boolean eliminarLibro(long id) {
+    for (Libro libro : libros) {
+        if (libro.getId() == id) {
+            libros.remove(libro);
+            return true;
         }
-        return false; 
     }
+    return false;
+}
     
     public Libro buscarLibro(long id) {
         for (Libro libro : libros) {
