@@ -22,18 +22,28 @@ public class Libro {
      */
     private String titulo;
     
+    private Autor autor;
+    
 
     
     ////// Metodo Constructor 
-    public Libro(String titulo) {
+    public Libro(String titulo, Autor autor) {
         Libro.contadorLibros ++;
         this.id = Libro.contadorLibros;
         this.titulo = titulo;
-    }
+        this.autor = new Autor(autor.getNombre(), autor.getCorreoElectronico(), autor.getProfesion(), autor.getEditorial(), autor.getDocumentoIdentidad());    }
 
     ///// Metodos de Acceso
     public long getId() {
         return id;
+    }
+    
+    public Autor getAutor(){
+        return autor;
+    }
+    
+    public void setAutor(Autor autor){
+        this.autor = autor;
     }
 
 

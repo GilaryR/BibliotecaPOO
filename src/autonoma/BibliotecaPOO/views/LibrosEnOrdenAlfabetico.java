@@ -87,6 +87,8 @@ public class LibrosEnOrdenAlfabetico extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(87, 180, 186));
 
+        TablaLibrosOrdenados.setBackground(new java.awt.Color(220, 215, 201));
+        TablaLibrosOrdenados.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         TablaLibrosOrdenados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},

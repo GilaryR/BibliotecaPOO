@@ -63,16 +63,19 @@ public class Biblioteca {
     return resultado;
 }
     
-    public boolean eliminarLibro(long id) {
-    for (Libro libro : libros) {
-        if (libro.getId() == id) {
-            libros.remove(libro);
+public boolean eliminarLibro(long id) {
+
+
+    for (int i = 0; i < libros.size(); i++) {
+        if (libros.get(i).getId() == id) {
+            libros.remove(i);
+  
             return true;
         }
     }
-    return false;
+
+    return false; 
 }
-    
     public Libro buscarLibro(long id) {
         for (Libro libro : libros) {
             if (libro.getId() == id) {

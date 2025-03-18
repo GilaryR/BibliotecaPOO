@@ -16,14 +16,21 @@ import javax.swing.JOptionPane;
  * @since 20250316
  * @version 1.0
  */
+
+/**
+ *
+ * @author Gilary
+ * @since 20250317
+ * @version 1.1
+ */
 public class EliminarLibro extends javax.swing.JDialog {
 
-    private Biblioteca biblio;
+    private Biblioteca biblioteca;
     private VentanaPrincipal principal;
 
-    public EliminarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblio, VentanaPrincipal principal) {
+    public EliminarLibro(java.awt.Frame parent, boolean modal, Biblioteca biblioteca, VentanaPrincipal principal) {
         super(parent, modal);
-        this.biblio = biblio;
+        this.biblioteca = biblioteca;
         this.principal = principal;
         initComponents();
         this.setLocationRelativeTo(null);
@@ -172,9 +179,9 @@ public class EliminarLibro extends javax.swing.JDialog {
         return;
     }
     
-    Libro encontrado = biblio.buscarLibro(value);
+    Libro encontrado = biblioteca.buscarLibro(value);
     if (encontrado != null) {
-        if (biblio.eliminarLibro(value)) {
+        if (biblioteca.eliminarLibro(value)) {
             JOptionPane.showMessageDialog(this, "Libro eliminado exitosamente.");
             principal.llenarTablaLibros(); // Actualizar la tabla en la ventana principal
             dispose();

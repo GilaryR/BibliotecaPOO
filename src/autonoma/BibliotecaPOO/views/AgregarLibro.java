@@ -1,6 +1,7 @@
 
 package autonoma.BibliotecaPOO.views;
 
+import autonoma.BibliotecaPOO.models.Autor;
 import autonoma.BibliotecaPOO.models.Biblioteca;
 import autonoma.BibliotecaPOO.models.Libro;
 import java.awt.Frame;
@@ -12,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Gilary
  * @since 20250316
- * @version 1.0
+ * @version 1.2
  */
 public class AgregarLibro extends javax.swing.JDialog {
     private Biblioteca biblioteca;
@@ -209,25 +210,35 @@ public class AgregarLibro extends javax.swing.JDialog {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
-private void agregarLibro(){
+private void agregarLibro() {
     try {
-        String titulo = txtTitulo.getText();
+        String titulo = txtTitulo.getText().trim();
+        String nombreAutor = txtAutor.getText().trim();
+        String editorial = txtEditorial.getText().trim();
 
-        if (titulo.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Ingrese el título del libro", "Error", JOptionPane.WARNING_MESSAGE);
+        if (titulo.isEmpty() || nombreAutor.isEmpty() || editorial.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Crear libro y agregarlo a la tabla
-        Libro nuevoLibro = new Libro(titulo);
+        // Crear el objeto Autor con el nombre ingresado (sin correo ni número de identidad por ahora)
+        Autor nuevoAutor = new Autor(nombreAutor, "", "", editorial, "");
+
+        // Crear el objeto Libro con el autor
+        Libro nuevoLibro = new Libro(titulo, nuevoAutor);
+
+        // Agregar el libro a la biblioteca
         biblioteca.agregarLibro(nuevoLibro);
-        ventanaPrincipal.llenarTablaLibros();
+
+        // Agregar el libro a la tabla de VentanaPrincipal
+        ventanaPrincipal.agregarLibroTabla(nuevoLibro);
 
         JOptionPane.showMessageDialog(this, "Libro agregado exitosamente");
-        this.dispose(); // Cierra el diálogo después de agregar
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Ingrese un ID válido", "Error", JOptionPane.ERROR_MESSAGE);
-    }
+        this.dispose(); // Cierra la ventana
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al agregar el libro: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+}
 }
 
     

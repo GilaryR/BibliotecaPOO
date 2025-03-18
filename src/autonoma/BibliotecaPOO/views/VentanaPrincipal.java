@@ -1,5 +1,6 @@
 package autonoma.BibliotecaPOO.views;
 
+import autonoma.BibliotecaPOO.models.Autor;
 import autonoma.BibliotecaPOO.models.Biblioteca;
 import autonoma.BibliotecaPOO.models.Libro;
 import java.awt.Color;
@@ -13,6 +14,13 @@ import javax.swing.table.DefaultTableModel;
  * @author Gilary
  * @since 20250316
  * @version 1.0
+ */
+
+/**
+ *
+ * @author Gilary
+ * @since 20250316
+ * @version 1.1
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     private Biblioteca biblioteca;
@@ -339,9 +347,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(LibroAlfabeticamente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(44, 44, 44))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(76, 76, 76)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,16 +470,33 @@ public void llenarTablaLibros() {
     DefaultTableModel modelo = (DefaultTableModel) TablaLibros.getModel();
     modelo.setRowCount(0); // Limpiar la tabla antes de llenarla
 
-    for (Libro libro : biblioteca.getLibros()) { // ← Asegúrate de que esta función existe en Biblioteca
-        modelo.addRow(new Object[]{libro.getId(), libro.getTitulo()});
+
+
+    for (Libro libro : biblioteca.getLibros()) {
+        Autor autor = libro.getAutor(); // Obtener el autor del libro
+        String nombreAutor = (autor != null) ? autor.getNombre() : "Desconocido";
+        String editorial = (autor != null) ? autor.getEditorial() : "Desconocida";
+
+       
+
+        modelo.addRow(new Object[]{
+            libro.getId(),
+            libro.getTitulo(),
+            nombreAutor,
+            editorial
+        });
 }
 }
 
 public void agregarLibroTabla(Libro libro) {
-    DefaultTableModel modelo = (DefaultTableModel) TablaLibros.getModel();
-    modelo.addRow(new Object[]{libro.getId(), libro.getTitulo()});
+    DefaultTableModel model = (DefaultTableModel) TablaLibros.getModel();
+    model.addRow(new Object[]{
+        libro.getId(),
+        libro.getTitulo(),
+        libro.getAutor().getNombre(),  // Obtener el nombre del autor
+        libro.getAutor().getEditorial() // Obtener la editorial del autor
+});
 }
-
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

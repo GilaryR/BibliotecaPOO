@@ -46,12 +46,14 @@ public class ActualizarLibro extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         idActualizartxt = new java.awt.TextField();
         jLabel4 = new javax.swing.JLabel();
-        Nuevoidtxt = new java.awt.TextField();
-        jPanel3 = new javax.swing.JPanel();
+        Nuevoautorxt = new java.awt.TextField();
         jLabel5 = new javax.swing.JLabel();
         NuevoTitulotxt = new java.awt.TextField();
+        jPanel3 = new javax.swing.JPanel();
         btnActualizar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        editorialtxt = new java.awt.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -68,7 +70,7 @@ public class ActualizarLibro extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
@@ -93,7 +95,12 @@ public class ActualizarLibro extends javax.swing.JDialog {
         jLabel3.setText("ID Libro a Actualizar: ");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        jLabel4.setText("Nuevo ID:");
+        jLabel4.setText("Nuevo Autor:");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel5.setText("Nuevo Titulo: ");
+
+        NuevoTitulotxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -101,13 +108,17 @@ public class ActualizarLibro extends javax.swing.JDialog {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel5))
                 .addGap(53, 53, 53)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(idActualizartxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Nuevoidtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NuevoTitulotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(idActualizartxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Nuevoautorxt, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -120,16 +131,15 @@ public class ActualizarLibro extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(Nuevoidtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addComponent(Nuevoautorxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(NuevoTitulotxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(87, 180, 186));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        jLabel5.setText("Nuevo Titulo: ");
-
-        NuevoTitulotxt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         btnActualizar.setBackground(new java.awt.Color(79, 149, 157));
         btnActualizar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -149,6 +159,9 @@ public class ActualizarLibro extends javax.swing.JDialog {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        jLabel6.setText("Nueva Editorial:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -156,28 +169,25 @@ public class ActualizarLibro extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(85, 85, 85)
-                        .addComponent(btnActualizar)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnActualizar)
                         .addGap(59, 59, 59)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                        .addComponent(NuevoTitulotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48))))
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(75, 75, 75)
+                        .addComponent(editorialtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(NuevoTitulotxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                    .addComponent(editorialtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActualizar)
                     .addComponent(btnCancelar))
@@ -206,59 +216,66 @@ public class ActualizarLibro extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-    try {
-        String idStr = idActualizartxt.getText().trim();
-        String nuevoIdStr = Nuevoidtxt.getText().trim();
-        String nuevoTitulo = NuevoTitulotxt.getText().trim();
+   try {
+    String idStr = idActualizartxt.getText().trim();
+    String nuevoTitulo = NuevoTitulotxt.getText().trim();
+    String nuevoAutor = Nuevoautorxt.getText().trim();
+    String nuevaEditorial = editorialtxt.getText().trim();
 
-        if (idStr.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Debe ingresar el ID del libro a actualizar", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+    if (idStr.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Debe ingresar el ID del libro a actualizar", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
 
-        Long idBuscado = Long.parseLong(idStr);
+    Long idBuscado = Long.parseLong(idStr);
 
-        DefaultTableModel modelo = (DefaultTableModel) ventanaPrincipal.getTablaLibros().getModel();
-        boolean encontrado = false;
+    DefaultTableModel modelo = (DefaultTableModel) ventanaPrincipal.getTablaLibros().getModel();
+    boolean encontrado = false;
 
-        for (int i = 0; i < modelo.getRowCount(); i++) {
-            Long idTabla = (Long) modelo.getValueAt(i, 0);
-            if (idTabla.equals(idBuscado)) {
-                // Si el usuario ingresó un nuevo ID, actualizarlo
-                if (!nuevoIdStr.isEmpty()) {
-                    Long nuevoId = Long.parseLong(nuevoIdStr);
-                    modelo.setValueAt(nuevoId, i, 0);
-                    Libro libro = ventanaPrincipal.getBiblioteca().buscarLibro(idBuscado);
-
-                }
-
+    for (int i = 0; i < modelo.getRowCount(); i++) {
+        Long idTabla = (Long) modelo.getValueAt(i, 0);
+        if (idTabla.equals(idBuscado)) {
+            // Buscar el libro en la biblioteca
+            Libro libro = ventanaPrincipal.getBiblioteca().buscarLibro(idBuscado);
+            
+            if (libro != null) {
                 // Si el usuario ingresó un nuevo título, actualizarlo
                 if (!nuevoTitulo.isEmpty()) {
                     modelo.setValueAt(nuevoTitulo, i, 1);
-                    Libro libro = ventanaPrincipal.getBiblioteca().buscarLibro(idBuscado);
-                    if (libro != null) {
-                        libro.setTitulo(nuevoTitulo);
-                    }
+                    libro.setTitulo(nuevoTitulo);
+                }
+
+                // Si el usuario ingresó un nuevo autor, actualizarlo
+                if (!nuevoAutor.isEmpty()) {
+                    modelo.setValueAt(nuevoAutor, i, 2);
+                    libro.getAutor().setNombre(nuevoAutor); // Aquí se usa setNombre() de Persona
+                }
+
+                // Si el usuario ingresó una nueva editorial, actualizarla
+                if (!nuevaEditorial.isEmpty()) {
+                    modelo.setValueAt(nuevaEditorial, i, 3);
+                    libro.getAutor().setEditorial(nuevaEditorial); // Se actualiza la editorial del autor
                 }
 
                 encontrado = true;
                 break;
             }
         }
-
-        if (encontrado) {
-            JOptionPane.showMessageDialog(this, "Libro actualizado correctamente");
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Libro no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Ingrese IDs válidos", "Error", JOptionPane.ERROR_MESSAGE);
-    } catch (NullPointerException e) {
-        JOptionPane.showMessageDialog(this, "Error al actualizar el libro. Asegúrese de que el libro existe.", "Error", JOptionPane.ERROR_MESSAGE);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Ocurrió un error inesperado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
+
+    if (encontrado) {
+        JOptionPane.showMessageDialog(this, "Libro actualizado correctamente");
+        this.dispose();
+    } else {
+        JOptionPane.showMessageDialog(this, "Libro no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+} catch (NumberFormatException e) {
+    JOptionPane.showMessageDialog(this, "Ingrese un ID válido", "Error", JOptionPane.ERROR_MESSAGE);
+} catch (NullPointerException e) {
+    JOptionPane.showMessageDialog(this, "Error al actualizar el libro. Asegúrese de que el libro existe.", "Error", JOptionPane.ERROR_MESSAGE);
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Ocurrió un error inesperado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+}
 }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -268,15 +285,17 @@ public class ActualizarLibro extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.TextField NuevoTitulotxt;
-    private java.awt.TextField Nuevoidtxt;
+    private java.awt.TextField Nuevoautorxt;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnCancelar;
+    private java.awt.TextField editorialtxt;
     private java.awt.TextField idActualizartxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
