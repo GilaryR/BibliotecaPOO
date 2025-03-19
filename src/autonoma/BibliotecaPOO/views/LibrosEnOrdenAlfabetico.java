@@ -99,8 +99,21 @@ public class LibrosEnOrdenAlfabetico extends javax.swing.JDialog {
             new String [] {
                 "", "ID", "TITULO"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(TablaLibrosOrdenados);
+        if (TablaLibrosOrdenados.getColumnModel().getColumnCount() > 0) {
+            TablaLibrosOrdenados.getColumnModel().getColumn(0).setResizable(false);
+            TablaLibrosOrdenados.getColumnModel().getColumn(1).setResizable(false);
+            TablaLibrosOrdenados.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         btnCerrar.setBackground(new java.awt.Color(79, 149, 157));
         btnCerrar.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
@@ -118,11 +131,11 @@ public class LibrosEnOrdenAlfabetico extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(195, 195, 195)
-                        .addComponent(btnCerrar)))
+                        .addComponent(btnCerrar))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
